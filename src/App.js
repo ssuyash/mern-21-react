@@ -4,12 +4,13 @@ import Playground from './Components/Playground'
 import Person from './Components/Person'
 import Calc from './Components/Calc'
 import Form from './Components/Form'
+import Balancesheet from './Components/Balancesheet'
 
 export default class App extends Component {
   render() {
 
     return (
-      <Form/>
+      <Balancesheet/>
     )
 
     // let persons = [
