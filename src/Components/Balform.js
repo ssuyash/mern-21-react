@@ -50,6 +50,7 @@ export default class Balform extends Component {
                 type="text" 
                 value={this.state.remark}
                 className="form-control"
+                placeholder="remark"
                 onChange={e=>this.setState({remark:e.target.value})}
                 ></input>
             </div>

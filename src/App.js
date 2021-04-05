@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './Containers/Home'
 import Playground from './Components/Playground'
 import Person from './Components/Person'
@@ -10,7 +11,12 @@ export default class App extends Component {
   render() {
 
     return (
-      <Balancesheet/>
+      <Router>
+        <Route path="/" component={Home} exact/>
+        <Route path="/balance" component={Balancesheet}/>
+        <Route path="/calc" component={Calc}/>
+      </Router>
+      
     )
 
     // let persons = [
