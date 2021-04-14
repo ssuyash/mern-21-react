@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Balform from '../Components/Balform'
 import Baltxntable from '../Components/Baltxntable'
 import Balsmrytbl from '../Components/Balsmrytbl'
+import Scaffold from '../Components/Scaffold'
 
 export default class Balancesheet extends Component {
     constructor(props) {
@@ -9,8 +10,22 @@ export default class Balancesheet extends Component {
     
         this.state = {
            
-             transactions:[]
+             transactions:[],
+             token:""
         }
+    }
+
+    async componentDidMount(){
+      let loginToken =  await localStorage.getItem("lgntkn")
+      if(loginToken == null){
+          window.location = "/login"
+          return
+      }else{
+        this.setState({token:loginToken})
+      }
+
+
+      console.log("data from local storage", loginToken)
     }
 
     getTxnSummary = ()=>{
@@ -59,13 +74,15 @@ export default class Balancesheet extends Component {
     render() {
         let smry = this.getTxnSummary()
         return (
-            <div className="container mt-5">
+            <Scaffold>
+            <div className=" mt-5">
                <Balform saveTxnBal={this.saveTxn}/>
                <Baltxntable transactions={this.state.transactions}/>
                <Balsmrytbl smry={smry}/>
 
       
             </div>
+            </Scaffold>
         )
     }
 }

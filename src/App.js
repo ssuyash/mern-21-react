@@ -6,6 +6,11 @@ import Person from './Components/Person'
 import Calc from './Components/Calc'
 import Form from './Components/Form'
 import Balancesheet from './Containers/Balancesheet'
+import Posts from './Components/Posts'
+import Statetest from './Components/Statetest'
+import 'react-toastify/dist/ReactToastify.css';
+import Register from './Containers/Register'
+import Login from './Containers/Login'
 
 export default class App extends Component {
   constructor(props) {
@@ -24,18 +29,17 @@ export default class App extends Component {
     console.log("APP : render")
 
     return (
-      // <Router>
-      //   <Route path="/" component={Home} exact/>
-      //   <Route path="/balance" component={Balancesheet}/>
-      //   <Route path="/calc" component={Calc}/>
-      // </Router>
-    
-<>
-      {this.state.showHome ? <Home/> : 
-    <h1>App component {this.state.count}</h1>}
+      <Router>
 
-    <button onClick={()=>this.setState({showHome:false})}>hide home</button>
-   </>
+
+        <Route path="/" component={Balancesheet} exact/>
+        <Route path="/register" component={Register} exact/>
+        <Route path="/login" component={Login} exact/>
+        <Route path="/balance" component={Balancesheet}/>
+        <Route path="/calc" component={Calc}/>
+      </Router>
+    
+
       
       
     )
