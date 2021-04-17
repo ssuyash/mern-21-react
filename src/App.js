@@ -11,6 +11,7 @@ import Statetest from './Components/Statetest'
 import 'react-toastify/dist/ReactToastify.css';
 import Register from './Containers/Register'
 import Login from './Containers/Login'
+import Edittxn from './Components/Edittxn'
 
 export default class App extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ export default class App extends Component {
         <Route path="/login" component={Login} exact/>
         <Route path="/balance" component={Balancesheet}/>
         <Route path="/calc" component={Calc}/>
+        <Route path="/edit-txn/:txn" component={Edittxn}/>
       </Router>
     
 

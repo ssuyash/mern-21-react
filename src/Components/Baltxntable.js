@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Baltxntable extends Component {
     render() {
@@ -11,6 +12,7 @@ export default class Baltxntable extends Component {
                             <th>Amount</th>
                             <th>Type</th>
                             <th>Remark</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -20,6 +22,9 @@ export default class Baltxntable extends Component {
                             <td>{txn.amount}</td>
                             <td>{txn.type}</td>
                            <td>{txn.remark}</td>
+                           <td>
+                               <Link className="btn btn-sm btn-primary" to={`/edit-txn/${txn._id}`}>edit</Link>
+                           </td>
                         </tr>)
                        })}
                     </tbody>

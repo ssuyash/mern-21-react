@@ -1,4 +1,4 @@
 let config = {}
-config.API = "http://192.168.1.7:3100"
+config.API = "http://182.70.255.54:3100"
 
 export default config

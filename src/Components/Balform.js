@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+import config from '../config/config'
+import { toast, ToastContainer } from 'react-toastify';
 
 export default class Balform extends Component {
     constructor(props) {
@@ -8,6 +11,7 @@ export default class Balform extends Component {
             amount:0,
             type:"credit",
             remark:"",
+            token:""
         }
     }
 
@@ -16,8 +20,20 @@ export default class Balform extends Component {
         let txn = {
             amount, type, remark
         }
+        axios.post(`${config.API}/transaction`, txn, {headers:{token:this.state.token}}).then(res=>{
+            let data = res.data
+            toast(data.msg)
+        }).catch(err=>{
+
+        })
+        
         this.props.saveTxnBal(txn)
         this.setState({amount:0, remark:""})
+    }
+
+    async componentDidMount(){
+       let token =  await localStorage.getItem('lgntkn')
+       this.setState({token})
     }
     
     render() {
@@ -62,7 +78,7 @@ export default class Balform extends Component {
                >Save</button>
             </div>
 
-            
+            <ToastContainer/>
         </div>
         )
     }

@@ -3,6 +3,8 @@ import Balform from '../Components/Balform'
 import Baltxntable from '../Components/Baltxntable'
 import Balsmrytbl from '../Components/Balsmrytbl'
 import Scaffold from '../Components/Scaffold'
+import axios from 'axios'
+import config from '../config/config'
 
 export default class Balancesheet extends Component {
     constructor(props) {
@@ -21,8 +23,18 @@ export default class Balancesheet extends Component {
           window.location = "/login"
           return
       }else{
+          console.log(loginToken)
         this.setState({token:loginToken})
       }
+
+      axios.get(`${config.API}/transactions`, {headers:{token:loginToken}}).then(res=>{
+        let data = res.data.data
+        this.setState({transactions:data})
+      }).catch(err=>{
+
+      })
+
+
 
 
       console.log("data from local storage", loginToken)

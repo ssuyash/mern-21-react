@@ -9,6 +9,11 @@ export default class Nav extends Component {
        isLoggedIn : true
     }
   }
+
+  logout = async ()=>{
+    await localStorage.removeItem("lgntkn")
+    window.location = "/login"
+  }
   
     render() {
         return (
@@ -51,6 +56,10 @@ export default class Nav extends Component {
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
+              <button 
+              className="btn btn-outline"
+              onClick={this.logout}
+              >logout</button>
             </div>
           </nav>
         )
