@@ -12,6 +12,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import Register from './Containers/Register'
 import Login from './Containers/Login'
 import Edittxn from './Components/Edittxn'
+import {ThemeProvider} from '@material-ui/core'
+
+import Functioncomp from './Components/Functioncomp'
+const theme = {}
+
+const appContext = React.createContext()
+
 
 export default class App extends Component {
   constructor(props) {
@@ -30,16 +37,23 @@ export default class App extends Component {
     console.log("APP : render")
 
     return (
-      <Router>
+      <appContext.Provider value={{...this.state}}>
+          <Functioncomp/>
+      </appContext.Provider>
+
+      
+      // <ThemeProvider theme={theme}>
+      // <Router>
 
 
-        <Route path="/" component={Balancesheet} exact/>
-        <Route path="/register" component={Register} exact/>
-        <Route path="/login" component={Login} exact/>
-        <Route path="/balance" component={Balancesheet}/>
-        <Route path="/calc" component={Calc}/>
-        <Route path="/edit-txn/:txn" component={Edittxn}/>
-      </Router>
+      //   <Route path="/" component={Balancesheet} exact/>
+      //   <Route path="/register" component={Register} exact/>
+      //   <Route path="/login" component={Login} exact/>
+      //   <Route path="/balance" component={Balancesheet}/>
+      //   <Route path="/calc" component={Calc}/>
+      //   <Route path="/edit-txn/:txn" component={Edittxn}/>
+      // </Router>
+      // </ThemeProvider>
     
 
       
@@ -101,3 +115,6 @@ export default class App extends Component {
   }
 
 }
+
+
+export {appContext}
