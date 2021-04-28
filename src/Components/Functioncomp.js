@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect, useContext} from 'react';
 
 import {appContext} from '../App'
+import Comp1 from './Comp1'
 
 export default function Functioncomp() {
 
@@ -27,12 +28,13 @@ export default function Functioncomp() {
 
 
     return (<div>
-
+  <Comp1 />
         <input
             type="text"
             value={product.title}
             onChange={(e) => setProduct({...product, title: e.target.value })}
         ></input>
+      
 
 
         <input
