@@ -1,5 +1,6 @@
 import React, {useReducer, useContext} from 'react'
 import Comp1 from './Components/Comp1'
+import Transactions from './Components/Products'
 
 export const appContext = React.createContext()
 
@@ -21,19 +22,21 @@ export default function App() {
   const [count, dispatch] = useReducer(reducer, initState)
   return (
 
-    <appContext.Provider value={{counter:count, dispatchCounter:dispatch}}>
-    <div>
-      in App Comp count is : {count}<br/>
+    <Transactions/>
 
-      <button
-      onClick={()=>dispatch('increment')}
-      >Inc</button>
-      <button
-       onClick={()=>dispatch('decrement')}
-      >Dec</button><br/>
+    // <appContext.Provider value={{counter:count, dispatchCounter:dispatch}}>
+    // <div>
+    //   in App Comp count is : {count}<br/>
 
-      <Comp1/>
-    </div>
-    </appContext.Provider>
+    //   <button
+    //   onClick={()=>dispatch('increment')}
+    //   >Inc</button>
+    //   <button
+    //    onClick={()=>dispatch('decrement')}
+    //   >Dec</button><br/>
+
+    //   <Comp1/>
+    // </div>
+    // </appContext.Provider>
   )
 }
