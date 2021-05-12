@@ -1,6 +1,7 @@
 import React, {useReducer, useContext} from 'react'
 import Comp1 from './Components/Comp1'
 import Transactions from './Components/Products'
+import './App.css'
 
 export const appContext = React.createContext()
 

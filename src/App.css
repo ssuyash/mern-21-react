@@ -1,0 +1,5 @@
+.brand-holder{
+    max-height: 250px;
+    overflow-y: scroll;
+    font: .8rem sans-serif;
+}
