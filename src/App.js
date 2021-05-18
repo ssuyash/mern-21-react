@@ -2,6 +2,7 @@ import React, {useReducer, useContext} from 'react'
 import Comp1 from './Components/Comp1'
 import Transactions from './Components/Products'
 import './App.css'
+import Fileupload from './Components/Fileupload'
 
 export const appContext = React.createContext()
 
@@ -23,7 +24,7 @@ export default function App() {
   const [count, dispatch] = useReducer(reducer, initState)
   return (
 
-    <Transactions/>
+    <Fileupload/>
 
     // <appContext.Provider value={{counter:count, dispatchCounter:dispatch}}>
     // <div>
